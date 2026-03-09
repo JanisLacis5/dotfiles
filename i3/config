@@ -193,15 +193,19 @@ bindsym $mod+c move position center
 bindsym $mod+Ctrl+h resize set width 50 ppt
 bindsym $mod+Ctrl+v resize set height 100 ppt
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/i3/scripts/connect_headphones.sh
+exec_always --no-startup-id $HOME/.config/i3/scripts/home_top.sh
 
 for_window [floating] border pixel 1
 for_window [tiling]   border pixel 1
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpaper.jpg
 exec --no-startup-id export XCURSOR_SIZE=16
 exec --no-startup-id export XCURSOR_THEME=Bibata-Modern-Classic
 exec --no-startup-id synclient VertScrollDelta=-111
 bindsym $mod+Ctrl+u exec --no-startup-id setxkbmap -layout "us"
 bindsym $mod+Ctrl+l exec --no-startup-id setxkbmap lv -variant apostrophe
-
+bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock
+bindsym Print exec --no-startup-id sh -c 'maim -s --format png | xclip -selection clipboard -t image/png -i'
+bindsym $mod+Ctrl+Shift+d exec --no-startup-id "xinput disable 9"
+bindsym $mod+Ctrl+Shift+e exec --no-startup-id "xinput enable 9"
 # Connect to wifi
 # nmcli dev wifi connect NAME password PASSWORD

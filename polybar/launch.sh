@@ -20,10 +20,10 @@ echo "---" | tee -a /tmp/polybar1.log
 
 if type "xrandr" >/dev/null 2>&1; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR="$m" polybar --reload example 2>&1 | tee -a "/tmp/polybar-$m.log" & disown
+    MONITOR="$m" polybar --reload main 2>&1 | tee -a "/tmp/polybar-$m.log" & disown
   done
 else
-  polybar --reload example 2>&1 | tee -a /tmp/polybar.log & disown
+  polybar --reload main 2>&1 | tee -a /tmp/polybar.log & disown
 fi
 
 echo "Bars launched..."
