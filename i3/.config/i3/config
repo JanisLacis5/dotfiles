@@ -196,7 +196,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/connect_headphones.sh
 exec_always --no-startup-id $HOME/.config/i3/scripts/home_top.sh
 
-for_window [floating] border pixel 1
+for_window [floating] border normal
 for_window [tiling]   border pixel 1
 exec --no-startup-id export XCURSOR_SIZE=16
 exec --no-startup-id export XCURSOR_THEME=Bibata-Modern-Classic
