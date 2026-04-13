@@ -23,6 +23,7 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.loader.enable()
 vim.call('plug#begin')
 
+plug("christoomey/vim-tmux-navigator")
 plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
 plug('Mofiqul/dracula.nvim')
 plug('nvim-tree/nvim-tree.lua')

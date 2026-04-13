@@ -1,9 +1,16 @@
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set('n', '<leader>e', ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- vim.keymap.set("n", "<C-h>", "<C-w>h")
+-- vim.keymap.set("n", "<C-j>", "<C-w>j")
+-- vim.keymap.set("n", "<C-k>", "<C-w>k")
+-- vim.keymap.set("n", "<C-l>", "<C-w>l")
+
+vim.g.tmux_navigator_no_mappings = 1
+vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+
 vim.keymap.set('n', '<Tab>', ':BufferNext<CR>')
 vim.keymap.set('n', '<S-Tab>', ':BufferPrevious<CR>')
 vim.keymap.set('n', '<leader><Tab>', ':BufferClose<CR>')
