@@ -207,5 +207,7 @@ bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock
 bindsym Print exec --no-startup-id sh -c 'maim -s --format png | xclip -selection clipboard -t image/png -i'
 bindsym $mod+Ctrl+Shift+d exec --no-startup-id "xinput disable 9"
 bindsym $mod+Ctrl+Shift+e exec --no-startup-id "xinput enable 9"
+bindsym $mod+Shift+o exec --no-startup-id "xrandr --output eDP --off && i3-msg reload"
+bindsym $mod+Shift+n exec --no-startup-id "xrandr --output eDP --auto && i3-msg reload"
 # Connect to wifi
 # nmcli dev wifi connect NAME password PASSWORD
