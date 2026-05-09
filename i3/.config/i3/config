@@ -204,7 +204,8 @@ exec --no-startup-id synclient VertScrollDelta=-111
 bindsym $mod+Ctrl+u exec --no-startup-id setxkbmap -layout "us"
 bindsym $mod+Ctrl+l exec --no-startup-id setxkbmap lv -variant apostrophe
 bindsym $mod+Ctrl+Shift+l exec --no-startup-id i3lock
-bindsym Print exec --no-startup-id sh -c 'maim -s --format png | xclip -selection clipboard -t image/png -i'
+bindsym $mod+p exec --no-startup-id sh -c 'maim -s --format png | xclip -selection clipboard -t image/png -i'
+# bindsym Print exec --no-startup-id sh -c 'maim -s --format png | xclip -selection clipboard -t image/png -i'
 bindsym $mod+Ctrl+Shift+d exec --no-startup-id "xinput disable 9"
 bindsym $mod+Ctrl+Shift+e exec --no-startup-id "xinput enable 9"
 bindsym $mod+Shift+o exec --no-startup-id "xrandr --output eDP --off && i3-msg reload"

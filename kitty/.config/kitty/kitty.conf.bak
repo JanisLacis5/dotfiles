@@ -1,5 +1,5 @@
 shell bash 
-font_family      family="JetBrainsMono Nerd Font"
+font_family      JetBrains Mono
 font_size        13
 
 window_padding_width 0
@@ -59,4 +59,3 @@ map ctrl+shift+down  decrease_font_size
 
 # allow kitty to handle ligatures properly
 enable_ligatures always
-
