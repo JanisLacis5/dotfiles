@@ -16,6 +16,8 @@ vim.g.vimtex_compiler_latexmk = {
   },
 }
 
+vim.o.exrc = true
+vim.o.secure = true
 vim.g.start_time = vim.fn.reltime()
 vim.g.mapleader = " "
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
