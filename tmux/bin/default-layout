@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -u
+
+[ -n "${TMUX:-}" ] || exit 0
+
+target_window="${1:-}"
+
+if [ -z "$target_window" ]; then
+    target_window="$(tmux display-message -p '#{window_id}')" || exit 1
+fi
+
+pane_count="$(tmux list-panes -t "$target_window" 2>/dev/null | wc -l)"
+
+if [ "$pane_count" -ne 1 ]; then
+    exit 0
+fi
+
+left_pane="$(tmux list-panes -t "$target_window" -F '#{pane_id}' | head -n 1)" || exit 1
+
+right_pane="$(tmux split-window -h -l 60% -t "$left_pane" -P -F '#{pane_id}')" || exit 1
+
+tmux split-window -v -l 50% -t "$left_pane" || exit 1
+
+tmux select-pane -t "$right_pane" || exit 1
+
+exit 0
