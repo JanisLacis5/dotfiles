@@ -149,10 +149,9 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-workspace 1 output DisplayPort-1
-workspace 2 output HDMI-A-0
-workspace 3 output DisplayPort-1
-workspace 4 output eDP
+workspace 1 output DP-0
+workspace 2 output HDMI-0
+workspace 3 output DP-0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -213,7 +212,6 @@ bindsym $mod+p exec --no-startup-id sh -c 'maim -s --format png | xclip -selecti
 # bindsym Print exec --no-startup-id sh -c 'maim -s --format png | xclip -selection clipboard -t image/png -i'
 bindsym $mod+Ctrl+Shift+d exec --no-startup-id "xinput disable 9"
 bindsym $mod+Ctrl+Shift+e exec --no-startup-id "xinput enable 9"
-bindsym $mod+Shift+o exec --no-startup-id "xrandr --output eDP --off && i3-msg reload"
-bindsym $mod+Shift+n exec --no-startup-id "xrandr --output eDP --auto && i3-msg reload"
+bindsym $mod+Ctrl+Shift+s exec systemctl suspend
 # Connect to wifi
 # nmcli dev wifi connect NAME password PASSWORD
