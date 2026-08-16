@@ -1,0 +1,73 @@
+# Catppuccin Mocha for NeoMutt
+# Palette: https://github.com/catppuccin/catppuccin
+
+# Reset first
+uncolor *
+
+# Base UI
+color normal          "#cdd6f4" "#1e1e2e"
+color indicator       "#1e1e2e" "#89b4fa"
+color tree            "#89b4fa" "#1e1e2e"
+color status          "#cdd6f4" "#313244"
+color error           "#1e1e2e" "#f38ba8"
+color message         "#cdd6f4" "#313244"
+color prompt          "#cdd6f4" "#313244"
+color search          "#1e1e2e" "#f9e2af"
+color markers         "#a6adc8" "#1e1e2e"
+color tilde           "#585b70" "#1e1e2e"
+color progress        "#1e1e2e" "#a6e3a1"
+
+# Sidebar
+color sidebar_background "#cdd6f4" "#181825"
+color sidebar_divider    "#45475a" "#181825"
+color sidebar_ordinary   "#a6adc8" "#181825"
+color sidebar_new        "#a6e3a1" "#181825"
+color sidebar_flagged    "#f9e2af" "#181825"
+color sidebar_spool_file "#89b4fa" "#181825"
+color sidebar_highlight  "#1e1e2e" "#cba6f7"
+color sidebar_indicator  "#1e1e2e" "#89b4fa"
+
+# Index columns
+color index             "#a6adc8" "#1e1e2e" ".*"
+color index_number      "#6c7086" "#1e1e2e" ".*"
+color index_date        "#7f849c" "#1e1e2e" ".*"
+color index_author      "#89b4fa" "#1e1e2e" ".*"
+color index_subject     "#cdd6f4" "#1e1e2e" ".*"
+color index_size        "#6c7086" "#1e1e2e" ".*"
+color index_flags       "#a6adc8" "#1e1e2e" ".*"
+
+# Message states
+color index             "#a6e3a1" "#1e1e2e" "~N"
+color index_author      "#a6e3a1" "#1e1e2e" "~N"
+color index_subject     "#a6e3a1" "#1e1e2e" "~N"
+color index_flags       "#f9e2af" "#1e1e2e" "~F"
+color index_subject     "#f9e2af" "#1e1e2e" "~F"
+color index             "#6c7086" "#1e1e2e" "~D"
+color index_subject     "#f38ba8" "#1e1e2e" "~D"
+color index             "#bac2de" "#1e1e2e" "~T"
+color index_tag         "#cba6f7" "#1e1e2e" "~T"
+color index_collapsed   "#fab387" "#1e1e2e" ".*"
+
+# Pager headers
+color hdrdefault        "#a6adc8" "#1e1e2e"
+color header            "#89b4fa" "#1e1e2e" "^(From|To|Cc|Bcc):"
+color header            "#cba6f7" "#1e1e2e" "^Subject:"
+color header            "#7f849c" "#1e1e2e" "^(Date|Reply-To):"
+color header            "#6c7086" "#1e1e2e" "^(User-Agent|X-Mailer):"
+
+# Message body
+color quoted            "#6c7086" "#1e1e2e"
+color quoted1           "#89b4fa" "#1e1e2e"
+color quoted2           "#a6e3a1" "#1e1e2e"
+color quoted3           "#f9e2af" "#1e1e2e"
+color quoted4           "#cba6f7" "#1e1e2e"
+color signature         "#585b70" "#1e1e2e"
+color attachment        "#fab387" "#1e1e2e"
+color bold              "#f9e2af" "#1e1e2e"
+color underline         "#89dceb" "#1e1e2e"
+
+# Body patterns
+color body              "#89b4fa" "#1e1e2e" "(https?|ftp)://[^[:space:]<>]+"
+color body              "#89dceb" "#1e1e2e" "[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}"
+color body              "#f9e2af" "#1e1e2e" "(^|[[:space:]])#[[:alnum:]_][-[:alnum:]_]*"
+color body              "#f38ba8" "#1e1e2e" "(^|[[:space:]])(TODO|FIXME|WARNING|IMPORTANT):?"

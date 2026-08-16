@@ -1,0 +1,8 @@
+# HTML mail: render to text inside NeoMutt
+text/html; lynx -stdin -dump -force_html; copiousoutput;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+# Open common attachments externally
+application/pdf; xdg-open %s >/dev/null 2>&1 &; test=test -n "$DISPLAY"; nametemplate=%s.pdf
+image/*; xdg-open %s >/dev/null 2>&1 &; test=test -n "$DISPLAY"
+text/*; nvim %s

@@ -56,3 +56,5 @@ vim.keymap.set("n", "<M-k>", ":resize +2<CR>", { desc = "Increase Window Height"
 vim.keymap.set("n", "<M-j>", ":resize -2<CR>", { desc = "Decrease Window Height" })
 vim.keymap.set("n", "<M-l>", ":vertical resize +2<CR>", { desc = "Increase Window Width" })
 vim.keymap.set("n", "<M-h>", ":vertical resize -2<CR>", { desc = "Decrease Window Width" })
+vim.keymap.set("n", "<leader>bb", ":Gitsigns blame<CR>")
+vim.keymap.set("n", "<leader>bl", ":Gitsigns blame_line<CR>")

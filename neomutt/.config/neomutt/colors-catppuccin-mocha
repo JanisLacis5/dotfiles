@@ -1,0 +1,73 @@
+# Catppuccin Mocha for NeoMutt
+# Palette: https://github.com/catppuccin/catppuccin
+
+# Reset first
+uncolor *
+
+# Base UI
+color normal          color189 color235
+color indicator       color235 color111
+color tree            color111 color235
+color status          color189 color237
+color error           color235 color210
+color message         color189 color237
+color prompt          color189 color237
+color search          color235 color223
+color markers         color146 color235
+color tilde           color59 color235
+color progress        color235 color151
+
+# Sidebar
+color sidebar_background color189 color234
+color sidebar_divider    color238 color234
+color sidebar_ordinary   color146 color234
+color sidebar_new        color151 color234
+color sidebar_flagged    color223 color234
+color sidebar_spool_file color111 color234
+color sidebar_highlight  color235 color183
+color sidebar_indicator  color235 color111
+
+# Index columns
+color index             color146 color235 ".*"
+color index_number      color60 color235 ".*"
+color index_date        color102 color235 ".*"
+color index_author      color111 color235 ".*"
+color index_subject     color189 color235 ".*"
+color index_size        color60 color235 ".*"
+color index_flags       color146 color235 ".*"
+
+# Message states
+color index             color151 color235 "~N"
+color index_author      color151 color235 "~N"
+color index_subject     color151 color235 "~N"
+color index_flags       color223 color235 "~F"
+color index_subject     color223 color235 "~F"
+color index             color60 color235 "~D"
+color index_subject     color210 color235 "~D"
+color index             color189 color235 "~T"
+color index_tag         color183 color235 "~T"
+color index_collapsed   color216 color235 ".*"
+
+# Pager headers
+color hdrdefault        color146 color235
+color header            color111 color235 "^(From|To|Cc|Bcc):"
+color header            color183 color235 "^Subject:"
+color header            color102 color235 "^(Date|Reply-To):"
+color header            color60 color235 "^(User-Agent|X-Mailer):"
+
+# Message body
+color quoted            color60 color235
+color quoted1           color111 color235
+color quoted2           color151 color235
+color quoted3           color223 color235
+color quoted4           color183 color235
+color signature         color59 color235
+color attachment        color216 color235
+color bold              color223 color235
+color underline         color117 color235
+
+# Body patterns
+color body              color111 color235 "(https?|ftp)://[^[:space:]<>]+"
+color body              color117 color235 "[[:alnum:]._%+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}"
+color body              color223 color235 "(^|[[:space:]])#[[:alnum:]_][-[:alnum:]_]*"
+color body              color210 color235 "(^|[[:space:]])(TODO|FIXME|WARNING|IMPORTANT):?"

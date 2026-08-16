@@ -1,0 +1,102 @@
+# NeoMutt starter config — Catppuccin Mocha + Vim-style navigation
+# Install to: ~/.config/neomutt/neomuttrc
+
+# Account settings are intentionally separate. Copy account.example to account
+# and edit it, then uncomment the next line.
+# source ~/.config/neomutt/account
+
+source ~/.config/neomutt/colors-catppuccin-mocha
+source ~/.config/neomutt/bindings-vim
+
+# -----------------------------------------------------------------------------
+# General behaviour
+# -----------------------------------------------------------------------------
+set realname = "Your Name"
+set editor = "nvim +':set spell' +':set textwidth=72'"
+set visual = "nvim"
+set charset = "utf-8"
+set send_charset = "utf-8"
+set assumed_charset = "utf-8"
+set sleep_time = 0
+set timeout = 10
+set mail_check = 30
+set move = no
+set delete = ask-yes
+set confirmappend = no
+set quit = ask-yes
+set beep = no
+set markers = no
+set wait_key = no
+set help = no
+set menu_scroll = yes
+set tilde = yes
+set resolve = yes
+set reverse_name = yes
+set reverse_realname = no
+set include = yes
+set forward_quote = yes
+set text_flowed = yes
+set edit_headers = yes
+set fast_reply = no
+set abort_nosubject = ask-yes
+set abort_unmodified = yes
+set attribution = "On %d, %n wrote:"
+set quote_regexp = "^([ \t]*[|>:}#])+"
+set reply_regexp = "^((re|aw|sv|fw|fwd)(\[[0-9]+\])?:[ \t]*)+"
+
+# Search like Vim: lowercase is insensitive, uppercase is significant.
+set thorough_search = yes
+
+# -----------------------------------------------------------------------------
+# Layout
+# -----------------------------------------------------------------------------
+set sidebar_visible = yes
+set sidebar_width = 28
+set sidebar_short_path = yes
+set sidebar_folder_indent = yes
+set sidebar_indent_string = "  "
+set sidebar_divider_char = "│"
+set sidebar_format = "%D%* %?N?%N/?%S"
+set mail_check_stats = yes
+set status_on_top = no
+set pager_index_lines = 8
+set pager_context = 3
+set pager_stop = yes
+set menu_context = 3
+
+# Threads and sorting
+set sort = "reverse-date-received"
+set sort_aux = "last-date-received"
+set sort_re = yes
+set strict_threads = no
+set collapse_all = no
+set duplicate_threads = yes
+
+# Index: status, date, sender, subject, size
+set date_format = "%d %b %H:%M"
+set index_format = "%4C %Z  %D  %-22.22F  %s %> %?M?%M ?%?l?%4l?"
+set status_format = " %f  %m messages  %n new  %?p?%p postponed  ?%?d?%d deleted  ?%>  %P "
+set pager_format = " %C/%m  %Z  %D  %-20.20n  %s%*  %P "
+
+# Header display
+ignore *
+unignore From To Cc Bcc Date Subject Reply-To Organization User-Agent X-Mailer
+hdr_order From To Cc Date Subject Reply-To Organization User-Agent X-Mailer
+
+# Attachments and HTML
+alternative_order text/plain text/enriched text/html
+auto_view text/html
+set implicit_autoview = yes
+set mailcap_path = "~/.config/neomutt/mailcap"
+
+# Cache paths
+set header_cache = "~/.cache/neomutt/headers"
+set message_cachedir = "~/.cache/neomutt/bodies"
+set certificate_file = "~/.cache/neomutt/certificates"
+
+# Keep credentials out of this file. See account.example.
+
+source ~/.config/neomutt-private/account
+
+# Show Gmail Primary on startup
+startup-hook 'push "<limit>=/ \"category:primary\"<Enter>"'

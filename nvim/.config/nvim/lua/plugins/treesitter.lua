@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter').setup {
 	ensure_installed = { "bash", "c", "css", "cpp", "go", "html", "java", "javascript", "json", "lua", "markdown", "markdown_inline", "python", "rust", "tsx", "typescript" },
 	highlight = {
 		enable = true,
@@ -8,9 +8,6 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
 		additional_vim_regex_highlighting = false,
 	},
-    indent = {
-        enable = true
-    },
 	incremental_selection = {
 		enable = true,
 		keymaps = {
@@ -21,3 +18,10 @@ require'nvim-treesitter.configs'.setup {
 		},
 	},
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "cpp", "python" },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})

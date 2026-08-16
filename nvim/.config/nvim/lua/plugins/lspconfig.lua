@@ -28,10 +28,30 @@ vim.diagnostic.config({
 })
 
 -- clangd (install it on your system: e.g. `sudo apt install clangd` or `brew install llvm`)
+-- vim.lsp.config("clangd", i{
+--   root_markers = { '.clangd', 'compile_commands.json' },
+--   filetypes = { "c", "cpp" },
+--   cmd = { "/usr/bin/clangd-20", "--query-driver=/usr/bin/c++,/usr/bin/g++-14,/usr/bin/clang++-20"},
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+-- })
+
 vim.lsp.config("clangd", {
-  root_markers = { '.clangd', 'compile_commands.json' },
-  filetypes = { "c", "cpp" },
-  cmd = { "/usr/bin/clangd-20", "--query-driver=/usr/bin/c++,/usr/bin/g++-14,/usr/bin/clang++-20"},
+  root_markers = {
+    ".clangd",
+    "compile_commands.json",
+    "compile_flags.txt",
+    "CMakeLists.txt",
+    ".git",
+  },
+  filetypes = { "c", "cpp", "objc", "objcpp" },
+  cmd = {
+    "/usr/bin/clangd-20",
+    "--enable-config",
+    "--background-index",
+    "--clang-tidy",
+    "--query-driver=/usr/bin/gcc,/usr/bin/g++,/usr/bin/c++,/usr/bin/g++-14,/usr/bin/clang,/usr/bin/clang++-20,/opt/espressif/tools/**/*gcc,/opt/espressif/tools/**/*g++,/home/janis/.espressif/tools/**/*gcc,/home/janis/.espressif/tools/**/*g++",
+  },
   capabilities = capabilities,
   on_attach = on_attach,
 })

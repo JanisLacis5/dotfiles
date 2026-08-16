@@ -1,0 +1,114 @@
+# ---------------------------------------------------------------------------
+# Vim-style NeoMutt bindings
+# Compatible with NeoMutt 20231103
+# ---------------------------------------------------------------------------
+
+# Navigation
+bind index j next-entry
+bind index k previous-entry
+bind index g noop
+bind index gg first-entry
+bind index G last-entry
+
+bind pager j next-line
+bind pager k previous-line
+bind pager g top
+bind pager G bottom
+
+bind index,pager <Down> next-entry
+bind index,pager <Up> previous-entry
+
+# Page movement
+bind index <PageDown> next-page
+bind index <PageUp> previous-page
+bind pager <PageDown> next-page
+bind pager <PageUp> previous-page
+
+# Open and leave messages
+bind index l display-message
+bind index <Right> display-message
+bind pager h exit
+bind pager <Left> exit
+
+# Thread movement
+bind index J next-thread
+bind index K previous-thread
+bind pager J next-thread
+bind pager K previous-thread
+
+# Search
+bind index,pager / search
+bind index,pager n search-next
+bind index,pager N search-opposite
+
+# Common mail actions
+bind index,pager r reply
+bind index,pager R group-reply
+bind index,pager f forward-message
+bind index,pager d delete-message
+bind index,pager u undelete-message
+bind index,pager F flag-message
+bind index,pager s save-message
+
+# Compose
+bind index m mail
+
+# Refresh mailbox
+bind index,pager <F5> sync-mailbox
+
+# Sidebar navigation
+bind index,pager <Tab> sidebar-next
+bind index,pager <BackTab> sidebar-prev
+
+# ---------------------------------------------------------------------------
+# Space leader
+#
+# NeoMutt requires the shorter prefix to be explicitly mapped to noop before
+# longer sequences are declared.
+# ---------------------------------------------------------------------------
+
+bind index <Space> noop
+bind pager <Space> noop
+
+# Leader: mailbox/sidebar
+macro index,pager "<Space>e" "<sidebar-toggle-visible>" \
+  "Toggle mailbox sidebar"
+
+macro index,pager "<Space>j" "<sidebar-next>" \
+  "Next mailbox"
+
+macro index,pager "<Space>k" "<sidebar-prev>" \
+  "Previous mailbox"
+
+macro index,pager "<Space>o" "<sidebar-open>" \
+  "Open selected mailbox"
+
+# Leader: mail actions
+macro index,pager "<Space>r" "<reply>" \
+  "Reply"
+
+macro index,pager "<Space>R" "<group-reply>" \
+  "Reply all"
+
+macro index,pager "<Space>f" "<forward-message>" \
+  "Forward message"
+
+macro index,pager "<Space>d" "<delete-message>" \
+  "Delete message"
+
+macro index,pager "<Space>s" "<save-message>" \
+  "Save or move message"
+
+macro index,pager "<Space>m" "<mail>" \
+  "Compose mail"
+
+macro index,pager "<Space>w" "<sync-mailbox>" \
+  "Write and sync mailbox"
+
+macro index,pager "<Space>q" "<quit>" \
+  "Quit NeoMutt"
+
+bind index <Enter> display-message
+macro index,pager "<Space>o" "<sidebar-open>" "Open selected mailbox"
+# Restore a separate key for manual filtering
+bind index L limit

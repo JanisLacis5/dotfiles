@@ -1,0 +1,92 @@
+# Vim / Neovim-inspired bindings
+# Space acts as a leader for multi-key macros.
+
+# Remove conflicting defaults where necessary
+unbind index,pager j
+unbind index,pager k
+unbind index,pager g
+unbind index,pager G
+
+# Core movement
+bind index,alias,browser j next-entry
+bind index,alias,browser k previous-entry
+bind index,alias,browser h exit
+bind index,alias,browser l select-entry
+bind pager j next-line
+bind pager k previous-line
+bind pager h exit
+bind pager l view-attachments
+bind index,pager \\C-d half-down
+bind index,pager \\C-u half-up
+bind index,pager \\C-f next-page
+bind index,pager \\C-b previous-page
+macro index,pager gg "<first-entry>" "go to first entry"
+bind index,pager G last-entry
+
+# Open / close / refresh
+bind index l display-message
+bind index <Return> display-message
+bind index q quit
+bind pager q exit
+bind index,pager R sync-mailbox
+
+# Thread navigation
+bind index,pager J next-thread
+bind index,pager K previous-thread
+bind index,pager za collapse-thread
+bind index,pager zA collapse-all
+bind index,pager zo collapse-thread
+bind index,pager zO collapse-all
+
+# Message actions
+bind index,pager d delete-message
+bind index,pager D delete-thread
+bind index,pager u undelete-message
+bind index,pager U undelete-thread
+bind index,pager r reply
+bind index,pager R group-reply
+bind index,pager f forward-message
+bind index,pager e edit
+bind index,pager s save-message
+bind index,pager c change-folder
+bind index,pager m mail
+bind index,pager t tag-entry
+bind index,pager * flag-message
+bind index,pager a create-alias
+bind index,pager v view-attachments
+
+# Search
+bind index,pager / search
+bind index,pager n search-next
+bind index,pager N search-opposite
+
+# Sidebar: mirrors Ctrl-h/j/k/l pane movement and NvimTree toggle
+bind index,pager \\C-h sidebar-prev
+bind index,pager \\C-l sidebar-next
+bind index,pager \\C-o sidebar-open
+bind index,pager <Tab> sidebar-next-new
+bind index,pager <BackTab> sidebar-prev-new
+macro index,pager <space>e "<sidebar-toggle-visible>" "toggle mailbox sidebar"
+
+# Leader-style actions inspired by your Neovim config
+macro index,pager <space>ff "<change-folder>?" "find/open mailbox"
+macro index,pager <space>fg "<search>" "search current mailbox"
+macro index,pager <space>fr "<change-folder>=" "open mailbox"
+macro index,pager <space>q  "<quit>" "quit"
+macro index,pager <space>w  "<sync-mailbox>" "write/sync changes"
+macro index,pager <space><Tab> "<sidebar-toggle-visible>" "toggle sidebar"
+macro index,pager <space>h "<display-toggle-weed>" "toggle full headers"
+macro index,pager <space>v "<view-attachments>" "view attachments"
+
+# Useful mailbox shortcuts; adjust names to your provider.
+macro index,pager gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index,pager gs "<change-folder>=Sent<enter>" "go to sent"
+macro index,pager gd "<change-folder>=Drafts<enter>" "go to drafts"
+macro index,pager gt "<change-folder>=Trash<enter>" "go to trash"
+
+# Compose menu
+bind compose \\C-a attach-file
+bind compose \\C-d detach-file
+bind compose \\C-e edit-message
+bind compose \\C-s send-message
+bind compose \\C-q postpone-message

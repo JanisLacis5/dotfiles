@@ -121,3 +121,4 @@ export PATH="$HOME/.local/kitty.app/bin:$PATH"
 # PS1='\[\e[38;5;219m\]\u@\h\[\e[0m\] \[\e[38;5;141m\]\w\[\e[0m\] \[\e[38;5;117m\]$(git branch 2>/dev/null | grep "*" | sed "s/*//")\[\e[0m\] \$ '
 PS1='\[\e[38;5;219m\]\u\[\e[0m\]@\[\e[38;5;147m\]\h\[\e[0m\] \[\e[38;5;141m\]\w\[\e[0m\] \[\e[38;5;159m\]$(git branch 2>/dev/null | grep "*" | sed "s/*//")\[\e[0m\] \$ '
 eval "$(zoxide init bash)"
+export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"

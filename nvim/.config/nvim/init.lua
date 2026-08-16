@@ -42,7 +42,7 @@ plug('lewis6991/gitsigns.nvim') --git
 plug('ibhagwan/fzf-lua') --fuzzy finder and grep
 plug('numToStr/FTerm.nvim') --floating terminal
 plug('ron-rs/ron.vim') --ron syntax highlighting
-plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
+-- plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
 -- plug('nvim-telescope/telescope.nvim')
 -- plug('nvim-lua/plenary.nvim')
 -- plug('nvim-telescope/telescope-fzf-native.nvim', { ['do'] = 'make' })
@@ -93,7 +93,7 @@ require('plugins.fterm')
 require('plugins.gitsigns')
 require('plugins.lualine')
 require('plugins.nvimlint')
-require('plugins.rendermd')
+-- require('plugins.rendermd')
 require('plugins.ron')
 require('plugins.treesitter')
 require('plugins.whichkey')
