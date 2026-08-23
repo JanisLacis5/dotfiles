@@ -25,6 +25,7 @@ vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.loader.enable()
 vim.call('plug#begin')
 
+plug('sindrets/diffview.nvim')
 plug("christoomey/vim-tmux-navigator")
 plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
 plug('Mofiqul/dracula.nvim')
@@ -102,6 +103,7 @@ require('plugins.nvim_cmp')
 require('plugins.lspconfig')
 require('plugins.luasnip')
 require('plugins.debugger')
+require('plugins.diffview')
 -- require('plugins.telescope')
 
 vim.cmd.colorscheme("catppuccin") -- dracula | catppuccin
