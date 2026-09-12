@@ -211,5 +211,8 @@ bindsym Print exec --no-startup-id sh -c 'maim -s --format png | xclip -selectio
 bindsym $mod+Ctrl+Shift+d exec --no-startup-id "xinput disable 9"
 bindsym $mod+Ctrl+Shift+e exec --no-startup-id "xinput enable 9"
 bindsym $mod+Ctrl+Shift+s exec systemctl suspend
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # Connect to wifi
 # nmcli dev wifi connect NAME password PASSWORD
