@@ -95,6 +95,7 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias idf='idf.py'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -122,3 +123,6 @@ export PATH="$HOME/.local/kitty.app/bin:$PATH"
 PS1='\[\e[38;5;219m\]\u\[\e[0m\]@\[\e[38;5;147m\]\h\[\e[0m\] \[\e[38;5;141m\]\w\[\e[0m\] \[\e[38;5;159m\]$(git branch 2>/dev/null | grep "*" | sed "s/*//")\[\e[0m\] \$ '
 eval "$(zoxide init bash)"
 export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"
+
+# opencode
+export PATH=/home/janis/.opencode/bin:$PATH

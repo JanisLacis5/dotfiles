@@ -1,6 +1,10 @@
 local vim = vim
 local plug = vim.fn['plug#']
 
+-- install vimplug
+-- sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+--  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 -- vim.g.UltiSnipsExpandTrigger = '<tab>'
 -- vim.g.UltiSnipsJumpForwardTrigger = '<tab>'
 -- vim.g.UltiSnipsJumpBackwardTrigger = '<s-tab>'
@@ -16,6 +20,8 @@ vim.g.vimtex_compiler_latexmk = {
   },
 }
 
+vim.call('plug#begin')
+
 vim.o.exrc = true
 vim.o.secure = true
 vim.g.start_time = vim.fn.reltime()
@@ -23,7 +29,6 @@ vim.g.mapleader = " "
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.loader.enable()
-vim.call('plug#begin')
 
 plug('sindrets/diffview.nvim')
 plug("christoomey/vim-tmux-navigator")
