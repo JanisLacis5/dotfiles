@@ -127,3 +127,5 @@ export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"
 # opencode
 export PATH=/home/janis/.opencode/bin:$PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# opencode
+export PATH=/home/janis/.opencode/bin:$PATH

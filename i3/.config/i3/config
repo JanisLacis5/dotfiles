@@ -216,5 +216,7 @@ bindsym $mod+Ctrl+Shift+o exec --no-startup-id "xrandr --output eDP --off"
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym $mod+Ctrl+Shift+i exec --no-startup-id "xrandr --output eDP --auto"
+bindsym $mod+Ctrl+Shift+o exec --no-startup-id "xrandr --output eDP --off"
 # Connect to wifi
 # nmcli dev wifi connect NAME password PASSWORD
