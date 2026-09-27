@@ -56,6 +56,7 @@ plug('ron-rs/ron.vim') --ron syntax highlighting
 
 -- LSP + completion
 plug('neovim/nvim-lspconfig')
+plug('stevearc/conform.nvim')
 plug('hrsh7th/nvim-cmp')
 plug('hrsh7th/cmp-nvim-lsp')
 plug('hrsh7th/cmp-buffer')
@@ -82,7 +83,7 @@ plug('saadparwaiz1/cmp_luasnip')
 plug('rafamadriz/friendly-snippets')
 
 -- LaTeX
-plug('lervag/vimtex')
+plug('lervag/vimtex', { tag = 'v2.17' })
 
 vim.call('plug#end')
 
@@ -109,6 +110,7 @@ require('plugins.lspconfig')
 require('plugins.luasnip')
 require('plugins.debugger')
 require('plugins.diffview')
+require('plugins.conform')
 -- require('plugins.telescope')
 
 vim.cmd.colorscheme("catppuccin") -- dracula | catppuccin
