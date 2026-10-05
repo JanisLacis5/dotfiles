@@ -119,8 +119,19 @@ fi
 
 export PATH="$HOME/.local/kitty.app/bin:$PATH"
 
-# PS1='\[\e[38;5;219m\]\u@\h\[\e[0m\] \[\e[38;5;141m\]\w\[\e[0m\] \[\e[38;5;117m\]$(git branch 2>/dev/null | grep "*" | sed "s/*//")\[\e[0m\] \$ '
-PS1='\[\e[38;5;219m\]\u\[\e[0m\]@\[\e[38;5;147m\]\h\[\e[0m\] \[\e[38;5;141m\]\w\[\e[0m\] \[\e[38;5;159m\]$(git branch 2>/dev/null | grep "*" | sed "s/*//")\[\e[0m\] \$ '
+# 256-color approximations of Dracula accents. Match the short hostname used by \h.
+case "${HOSTNAME%%.*}" in
+    laptop) prompt_host_color=84 ;; # Dracula green
+    pc)     prompt_host_color=228 ;; # Dracula soft yellow
+    *)
+        # Give other hosts a stable palette color; add cases above to avoid collisions.
+        prompt_host_palette=(212 141) # pink, purple; cyan is reserved for Git
+        read -r prompt_host_hash _ < <(printf '%s' "${HOSTNAME%%.*}" | cksum)
+        prompt_host_color=${prompt_host_palette[prompt_host_hash % ${#prompt_host_palette[@]}]}
+        ;;
+esac
+PS1='\[\e[38;5;219m\]\u\[\e[0m\]@\[\e[38;5;'"$prompt_host_color"'m\]\h\[\e[0m\] \[\e[38;5;141m\]\w\[\e[0m\] \[\e[38;5;159m\]$(git branch 2>/dev/null | grep "*" | sed "s/*//")\[\e[0m\] \$ '
+unset prompt_host_color prompt_host_palette prompt_host_hash
 eval "$(zoxide init bash)"
 export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"
 export PATH=/home/janis/.opencode/bin:$PATH
