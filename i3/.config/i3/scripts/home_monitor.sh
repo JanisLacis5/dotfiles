@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-xrandr --output DP-0 --auto
-xrandr --output HDMI-0 --left-of DP-0
+xrandr --output DisplayPort-0 --auto
+xrandr --output DisplayPort-1 --left-of DisplayPort-0 --auto

@@ -26,6 +26,7 @@ vim.o.exrc = true
 vim.o.secure = true
 vim.g.start_time = vim.fn.reltime()
 vim.g.mapleader = " "
+vim.opt.clipboard = "unnamedplus"
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 vim.loader.enable()
