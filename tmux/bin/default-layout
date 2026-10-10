@@ -17,7 +17,7 @@ fi
 
 left_pane="$(tmux list-panes -t "$target_window" -F '#{pane_id}' | head -n 1)" || exit 1
 
-right_pane="$(tmux split-window -h -l 60% -t "$left_pane" -P -F '#{pane_id}')" || exit 1
+right_pane="$(tmux split-window -h -l 67% -t "$left_pane" -P -F '#{pane_id}')" || exit 1
 
 tmux split-window -v -l 60% -t "$left_pane" || exit 1
 
