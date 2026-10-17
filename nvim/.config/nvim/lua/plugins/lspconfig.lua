@@ -82,6 +82,27 @@ vim.lsp.config("pyright", {
 })
 vim.lsp.enable({ "pyright" })
 
+-- Lua (lua-language-server is installed through Mason).
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "lua_ls" },
+})
+
+vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      runtime = { version = "LuaJIT" },
+      workspace = {
+        checkThirdParty = false,
+        library = { vim.env.VIMRUNTIME },
+      },
+    },
+  },
+})
+vim.lsp.enable({ "lua_ls" })
+
 
 local cmp = require("cmp")
 cmp.setup({

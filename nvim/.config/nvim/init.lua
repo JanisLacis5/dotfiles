@@ -83,7 +83,8 @@ plug('saadparwaiz1/cmp_luasnip')
 plug('rafamadriz/friendly-snippets')
 
 -- LaTeX
-plug('lervag/vimtex', { tag = 'v2.17' })
+-- v2.17 supports the installed Neovim 0.12.2; newer VimTeX requires 0.12.4.
+plug('lervag/vimtex', { commit = '2e1bbabeb2c34bb17d7bc8cfdf8f95b16dd0db0c' })
 
 vim.call('plug#end')
 

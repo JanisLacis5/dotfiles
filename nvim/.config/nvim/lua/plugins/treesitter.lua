@@ -30,7 +30,8 @@
 
   local treesitter = require("nvim-treesitter")
 
-  treesitter.setup()
+  -- Prefer updated parsers in site/ over old parsers bundled with the plugin.
+  treesitter.setup({ install_dir = vim.fn.stdpath("data") .. "/site" })
 
   treesitter.install({
     "bash", "c", "cpp", "css", "go", "html", "java",
@@ -39,7 +40,7 @@
   })
 
   vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "c", "cpp", "python" },
+    pattern = { "c", "cpp", "python", "lua" },
     callback = function()
       vim.treesitter.start()
     end,
