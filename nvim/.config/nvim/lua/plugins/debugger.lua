@@ -55,6 +55,22 @@ dap.adapters.codelldb = {
     args = { "--port", "${port}" },
   },
 }
+
+dap.adapters.gdb = {
+  type = "executable",
+  command = "gdb",
+  args = { "--quiet", "--interpreter=dap" },
+}
+
+-- Use the kernel build's symbols regardless of Neovim's working directory.
+local kernel_config = {
+  name = "Attach Linux kernel (localhost:1235)",
+  type = "gdb",
+  request = "attach",
+  program = "/home/janis/dev/builds_linux/build/vmlinux",
+  target = "localhost:1235",
+}
+
 local function input_executable()
   return vim.fn.input(
     "Executable: ",
@@ -74,6 +90,7 @@ local function input_args()
 end
 
 dap.configurations.cpp = {
+  kernel_config,
   {
     name = "Launch debug executable",
     type = "codelldb",
@@ -146,6 +163,12 @@ vim.keymap.set("n", "<F11>", dap.step_into)
 vim.keymap.set("n", "<F12>", dap.step_out)
 
 vim.keymap.set("n", "<leader>dc", dap.continue)
+vim.keymap.set("n", "<leader>dk", function()
+  dap.run(kernel_config)
+end, { desc = "Attach Linux kernel" })
+vim.keymap.set("n", "<leader>dd", function()
+  dap.disconnect({ terminateDebuggee = false })
+end, { desc = "Disconnect debugger" })
 vim.keymap.set("n", "<leader>do", dap.step_over)
 vim.keymap.set("n", "<leader>di", dap.step_into)
 vim.keymap.set("n", "<leader>dO", dap.step_out)
