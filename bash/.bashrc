@@ -136,10 +136,3 @@ eval "$(zoxide init bash)"
 export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"
 export PATH=/home/janis/.opencode/bin:$PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-source ~/.local/share/fzf-tab-completion/bash/fzf-bash-completion.sh
-bind -x '"\t": fzf_bash_completion'
-
-_fzf_bash_completion_loading_msg() {
-    printf '%s\n' "${PS1@P}${READLINE_LINE}" | tail -n1
-}
