@@ -71,6 +71,45 @@ local kernel_config = {
   target = "localhost:1235",
 }
 
+
+-- Initialize once per attachment, after the remote target has stopped.
+-- Omit frameId: symbol loading can invalidate DAP's cached stack frames.
+local kernel_symbol_sessions = setmetatable({}, { __mode = "k" })
+dap.listeners.after.event_stopped["kernel_symbols"] = function(session)
+  if session.config.name ~= kernel_config.name
+      or session.config.type ~= kernel_config.type
+      or kernel_symbol_sessions[session] then
+    return
+  end
+  kernel_symbol_sessions[session] = true
+
+  local commands = {
+    "source /home/janis/dev/builds_linux/build/vmlinux-gdb.py",
+    "lx-symbols /home/janis/dev/builds_linux/build/drivers/net/ethernet/janis",
+  }
+  local function run_command(index)
+    session:request("evaluate", {
+      context = "repl",
+      expression = commands[index],
+    }, function(err, response)
+      if err then
+        kernel_symbol_sessions[session] = nil
+        vim.notify("Kernel symbol setup failed: " .. vim.inspect(err), vim.log.levels.ERROR)
+        return
+      end
+      if response and response.result and response.result ~= "" then
+        dap.repl.append(response.result)
+      end
+      if index < #commands then
+        run_command(index + 1)
+      else
+        vim.notify("Kernel module symbols ready; continue before running insmod.")
+      end
+    end)
+  end
+  run_command(1)
+end
+
 local function input_executable()
   return vim.fn.input(
     "Executable: ",
