@@ -98,5 +98,5 @@ set certificate_file = "~/.cache/neomutt/certificates"
 
 source ~/.config/neomutt-private/account
 
-# Show Gmail Primary on startup
-startup-hook 'push "<limit>=/ \"category:primary\"<Enter>"'
+# Show Gmail Primary when opening the configured inbox, not local patch mailboxes.
+folder-hook +INBOX$ 'push "<limit>=/ \"category:primary\"<Enter>"'
