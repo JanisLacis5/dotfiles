@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+local_file="$HOME/Passwords"
+remote_dir="gdrive:Passwords"
+
+# Initialization is intentionally manual: do not recreate a missing local
+# database and risk interpreting its absence as a deletion.
+if [[ ! -f "$local_file" ]]; then
+    printf 'Missing local database: %s\n' "$local_file" >&2
+    exit 1
+fi
+
+# Bisync takes directories; include only the database at each root.
+exec rclone bisync "$HOME" "$remote_dir" \
+    --include '/Passwords' \
+    --compare size,modtime \
+    --conflict-resolve newer \
+    --conflict-loser num \
+    --resilient \
+    --recover \
+    --verbose

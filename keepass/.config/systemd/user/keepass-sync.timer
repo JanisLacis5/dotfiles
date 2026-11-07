@@ -1,0 +1,10 @@
+[Unit]
+Description=Synchronize KeePassXC every five minutes
+
+[Timer]
+OnBootSec=1min
+OnUnitInactiveSec=5min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Synchronize KeePassXC database with Google Drive
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/keepass-sync
