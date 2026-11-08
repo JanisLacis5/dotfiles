@@ -136,3 +136,4 @@ eval "$(zoxide init bash)"
 export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"
 export PATH=/home/janis/.opencode/bin:$PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(fzf --bash)"
