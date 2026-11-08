@@ -38,8 +38,10 @@ bind pager K previous-thread
 
 # Search
 bind index,pager / search
-bind index,pager n search-next
-bind index,pager N search-opposite
+macro index n "<search-next><current-middle>" "Next match, centered"
+macro index N "<search-opposite><current-middle>" "Previous match, centered"
+bind pager n search-next
+bind pager N search-opposite
 
 # Common mail actions
 bind index,pager r reply
@@ -49,6 +51,11 @@ bind index,pager d delete-message
 bind index,pager u undelete-message
 bind index,pager F flag-message
 bind index,pager s save-message
+
+# Esc then i: copy the raw Message-ID and show it on the bottom command line.
+# Single quotes defer command substitution until the macro is invoked.
+macro index,pager \ei '<pipe-message>python3 ~/.config/neomutt/message-id.py<Enter><enter-command>echo "`python3 ~/.config/neomutt/message-id.py --show`"<Enter>' \
+  "Show Message-ID and copy to clipboard"
 
 # Compose
 bind index m mail
@@ -69,6 +76,10 @@ bind index,pager <BackTab> sidebar-prev
 
 bind index <Space> noop
 bind pager <Space> noop
+
+# Leader: collapse/expand current thread or all threads in the index
+bind index <Space>t collapse-thread
+bind index <Space>T collapse-all
 
 # Leader: mailbox/sidebar
 macro index,pager "<Space>e" "<sidebar-toggle-visible>" \

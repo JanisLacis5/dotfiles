@@ -62,13 +62,18 @@ set status_on_top = no
 set pager_index_lines = 8
 set pager_context = 3
 set pager_stop = yes
-set menu_context = 3
+# Keep at most pager_index_lines / 3: larger values can switch mail on refresh.
+set menu_context = 2
 
 # Threads and sorting
-set sort = "reverse-date-received"
-set sort_aux = "last-date-received"
+set use_threads = threads
+# Latest activity first; chronological siblings with parents above replies.
+set sort = "reverse-last-date"
+set sort_aux = "date"
 set sort_re = yes
-set strict_threads = no
+# Use References/In-Reply-To, not matching subjects (e.g. netdev patches).
+set strict_threads = yes
+set ascii_chars = no
 set collapse_all = no
 set duplicate_threads = yes
 
