@@ -58,14 +58,15 @@ vim.keymap.set("n", "<M-l>", ":vertical resize +2<CR>", { desc = "Increase Windo
 vim.keymap.set("n", "<M-h>", ":vertical resize -2<CR>", { desc = "Decrease Window Width" })
 vim.keymap.set("n", "<leader>bb", ":Gitsigns blame<CR>")
 vim.keymap.set("n", "<leader>bl", ":Gitsigns blame_line<CR>")
-local function open_head_version()
+local function open_head_version(revision)
+    revision = revision or "HEAD"
     local file = vim.fn.expand("%:.")
 
     if file == "" then
         return
     end
 
-    local result = vim.fn.systemlist({ "git", "show", "HEAD:" .. file })
+    local result = vim.fn.systemlist({ "git", "show", revision .. ":" .. file })
 
     if vim.v.shell_error ~= 0 then
         vim.notify(table.concat(result, "\n"), vim.log.levels.ERROR)
@@ -83,7 +84,9 @@ local function open_head_version()
     vim.bo.modified = false
 end
 
-vim.api.nvim_create_user_command("HeadVersion", open_head_version, {})
+vim.api.nvim_create_user_command("HeadVersion", function(opts)
+    open_head_version(opts.fargs[1])
+end, { nargs = "?" })
 
 vim.keymap.set("n", "<leader>gh", open_head_version, {
     desc = "Open HEAD version in vertical split",
