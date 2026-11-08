@@ -1,0 +1,7 @@
+[Unit]
+Description=Korgalore mailing list sync
+
+[Service]
+Type=oneshot
+ExecStart=/home/janis/.local/bin/kgl pull
+

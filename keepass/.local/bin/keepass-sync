@@ -14,9 +14,11 @@ fi
 # Bisync takes directories; include only the database at each root.
 exec rclone bisync "$HOME" "$remote_dir" \
     --include '/Passwords' \
+    --max-delete 100 \
     --compare size,modtime \
     --conflict-resolve newer \
     --conflict-loser num \
     --resilient \
     --recover \
+    --force \
     --verbose

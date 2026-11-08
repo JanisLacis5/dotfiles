@@ -1,0 +1,10 @@
+[Unit]
+Description=Pull kernel mailing lists every 5 minutes
+
+[Timer]
+OnStartupSec=1min
+OnUnitInactiveSec=5min
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target
