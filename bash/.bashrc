@@ -137,3 +137,4 @@ export KBUILD_OUTPUT="/home/janis/dev/builds_linux/build"
 export PATH=/home/janis/.opencode/bin:$PATH
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(fzf --bash)"
+export JANISNVIM_TOKEN="5795049489020ef60a980644ab4eeb0c9c72484d280fe0799f5cb75102e24ffc"
