@@ -37,6 +37,8 @@ set include = yes
 set forward_quote = yes
 set text_flowed = yes
 set edit_headers = yes
+set signature = "~/.config/neomutt/signature"
+set sig_dashes = no
 set fast_reply = no
 set abort_nosubject = ask-yes
 set abort_unmodified = yes
@@ -62,6 +64,11 @@ set status_on_top = no
 set pager_index_lines = 8
 set pager_context = 3
 set pager_stop = yes
+
+# Highlight inline patches in the pager. Variable width avoids ANSI line-fill escapes.
+set allow_ansi = yes
+set display_filter = "if command -v delta >/dev/null 2>&1; then exec delta --no-gitconfig --color-only --width=variable --true-color=never --minus-style='syntax 52' --plus-style='syntax 22' --plus-emph-style=plus-style --minus-emph-style=minus-style --whitespace-error-style='syntax 22' --paging=never; else exec cat; fi"
+
 # Keep at most pager_index_lines / 3: larger values can switch mail on refresh.
 set menu_context = 2
 
